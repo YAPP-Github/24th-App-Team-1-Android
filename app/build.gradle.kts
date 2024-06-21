@@ -1,3 +1,9 @@
+import org.jetbrains.kotlin.konan.properties.Properties
+
+
+val properties = Properties()
+properties.load(rootProject.file("local.properties").inputStream())
+
 plugins {
     alias(libs.plugins.wespot.android.application)
     alias(libs.plugins.wespot.android.hilt)
@@ -7,6 +13,19 @@ plugins {
 
 android {
     namespace = "com.bff.wespot"
+
+    defaultConfig {
+        buildConfigField("String", "KAKAO_APP_KEY", properties.getProperty("KAKAO_APP_KEY"))
+        resValue(
+            "string",
+            "SCHEME_KAKAO_APP_KEY",
+            properties.getProperty("SCHEME_KAKAO_APP_KEY")
+        )
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {
@@ -17,6 +36,8 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:common"))
     implementation(project(":feature:auth"))
+
+    implementation(libs.kakao.sdk)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.core.ktx)

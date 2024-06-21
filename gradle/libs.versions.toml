@@ -34,6 +34,8 @@ junit-version = "1.1.5"
 espresso-core = "3.5.1"
 appcompat = "1.7.0"
 
+kakao_sdk = "2.12.1"
+
 [libraries]
 android-build = { module = "com.android.tools.build:gradle", version.ref = "gradle-plugin" }
 kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -90,6 +92,8 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit-version" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+kakao_sdk = { group = "com.kakao.sdk", name = "v2-user", version.ref = "kakao_sdk" }
 
 [bundles]
 androidx-compose = [
